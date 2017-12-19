@@ -36,8 +36,7 @@ public class Entry implements Serializable {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @NotNull
-    @Column(name = "jhi_date", nullable = false)
+    @Column(name = "jhi_date")
     private ZonedDateTime date;
 
     @ManyToOne
@@ -86,6 +85,9 @@ public class Entry implements Serializable {
     }
 
     public ZonedDateTime getDate() {
+        if(this.date == null){
+            date = ZonedDateTime.now();
+        }
         return date;
     }
 
