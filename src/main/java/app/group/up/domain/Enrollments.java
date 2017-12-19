@@ -23,12 +23,6 @@ public class Enrollments implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "person_id")
-    private String personId;
-
-    @Column(name = "circle_id")
-    private String circleId;
-
     @ManyToOne
     private Circle circle;
 
@@ -42,32 +36,6 @@ public class Enrollments implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getPersonId() {
-        return personId;
-    }
-
-    public Enrollments personId(String personId) {
-        this.personId = personId;
-        return this;
-    }
-
-    public void setPersonId(String personId) {
-        this.personId = personId;
-    }
-
-    public String getCircleId() {
-        return circleId;
-    }
-
-    public Enrollments circleId(String circleId) {
-        this.circleId = circleId;
-        return this;
-    }
-
-    public void setCircleId(String circleId) {
-        this.circleId = circleId;
     }
 
     public Circle getCircle() {
@@ -121,8 +89,8 @@ public class Enrollments implements Serializable {
     public String toString() {
         return "Enrollments{" +
             "id=" + getId() +
-            ", personId='" + getPersonId() + "'" +
-            ", circleId='" + getCircleId() + "'" +
+            ", personId='" + this.person.getId() + "'" +
+            ", circleId='" + this.circle.getId() + "'" +
             "}";
     }
 }

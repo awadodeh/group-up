@@ -17,10 +17,6 @@ public class EnrollmentsDTO implements Serializable {
 
     private String circleId;
 
-    private Long circleId;
-
-    private Long personId;
-
     public Long getId() {
         return id;
     }
@@ -43,22 +39,6 @@ public class EnrollmentsDTO implements Serializable {
 
     public void setCircleId(String circleId) {
         this.circleId = circleId;
-    }
-
-    public Long getCircleId() {
-        return circleId;
-    }
-
-    public void setCircleId(Long circleId) {
-        this.circleId = circleId;
-    }
-
-    public Long getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(Long personId) {
-        this.personId = personId;
     }
 
     @Override

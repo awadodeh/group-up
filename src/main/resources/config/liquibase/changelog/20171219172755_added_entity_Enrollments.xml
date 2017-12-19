@@ -30,17 +30,9 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="circle_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="person_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        
+
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>
