@@ -41,12 +41,18 @@
             <column name="number_of_members" type="integer">
                 <constraints nullable="false" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="circle" columnName="start_date" columnDataType="datetime"/>
         <dropDefaultValue tableName="circle" columnName="end_date" columnDataType="datetime"/>
-        
+
+    </changeSet>
+
+    <changeSet id="20171219172753-2" author="awad" runOnChange="true">
+        <addColumn tableName="circle">
+            <column name="created_date" type="date">
+            </column>
+        </addColumn>
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

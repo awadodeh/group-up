@@ -1,5 +1,6 @@
 package app.group.up.domain;
 
+import app.group.up.service.util.LocalDateConverter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -8,13 +9,14 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
 
 /**
- * A Circle.
+ * A Circle entity is an group that will contain a group of people in order to save a money target.
  */
 @Entity
 @Table(name = "circle")
@@ -53,6 +55,10 @@ public class Circle implements Serializable {
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Enrollments> enrollments = new HashSet<>();
+
+    @Column(name = "created_date")
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate createdDate = LocalDate.now();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -153,6 +159,15 @@ public class Circle implements Serializable {
         this.enrollments = enrollments;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+
+    public LocalDate getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
+    }
 
     @Override
     public boolean equals(Object o) {
