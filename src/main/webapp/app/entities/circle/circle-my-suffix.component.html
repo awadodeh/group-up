@@ -25,55 +25,82 @@
         </div>
     </div>
     <br/>
+    <!--<div class="table-responsive" *ngIf="circles">-->
+        <!--<table class="table table-striped">-->
+            <!--<thead>-->
+            <!--<tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">-->
+            <!--<th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>-->
+            <!--<th jhiSortBy="circleName"><span jhiTranslate="blogApp.circle.circleName">Circle Name</span> <span class="fa fa-sort"></span></th>-->
+            <!--<th jhiSortBy="circleWorth"><span jhiTranslate="blogApp.circle.circleWorth">Circle Worth</span> <span class="fa fa-sort"></span></th>-->
+            <!--<th jhiSortBy="startDate"><span jhiTranslate="blogApp.circle.startDate">Start Date</span> <span class="fa fa-sort"></span></th>-->
+            <!--<th jhiSortBy="endDate"><span jhiTranslate="blogApp.circle.endDate">End Date</span> <span class="fa fa-sort"></span></th>-->
+            <!--<th jhiSortBy="numberOfMembers"><span jhiTranslate="blogApp.circle.numberOfMembers">Number Of Members</span> <span class="fa fa-sort"></span></th>-->
+            <!--<th></th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr *ngFor="let circle of circles ;trackBy: trackId">-->
+                <!--<td><a [routerLink]="['../circle-my-suffix', circle.id ]">{{circle.id}}</a></td>-->
+                <!--<td>{{circle.circleName}}</td>-->
+                <!--<td>{{circle.circleWorth}}</td>-->
+                <!--<td>{{circle.startDate | date:'medium'}}</td>-->
+                <!--<td>{{circle.endDate | date:'medium'}}</td>-->
+                <!--<td>{{circle.numberOfMembers}}</td>-->
+                <!--<td class="text-right">-->
+                    <!--<div class="btn-group flex-btn-group-container">-->
+                        <!--<button type="submit"-->
+                                <!--[routerLink]="['../circle-my-suffix', circle.id ]"-->
+                                <!--class="btn btn-info btn-sm">-->
+                            <!--<span class="fa fa-eye"></span>-->
+                            <!--<span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>-->
+                        <!--</button>-->
+                        <!--<button type="submit"-->
+                                <!--[routerLink]="['/', { outlets: { popup: 'circle-my-suffix/'+ circle.id + '/edit'} }]"-->
+                                <!--replaceUrl="true"-->
+                                <!--class="btn btn-primary btn-sm">-->
+                            <!--<span class="fa fa-pencil"></span>-->
+                            <!--<span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>-->
+                        <!--</button>-->
+                        <!--<button type="submit"-->
+                                <!--[routerLink]="['/', { outlets: { popup: 'circle-my-suffix/'+ circle.id + '/delete'} }]"-->
+                                <!--replaceUrl="true"-->
+                                <!--class="btn btn-danger btn-sm">-->
+                            <!--<span class="fa fa-remove"></span>-->
+                            <!--<span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+    <!--</div>-->
+
+
     <div class="table-responsive" *ngIf="circles">
-        <table class="table table-striped">
-            <thead>
-            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="circleName"><span jhiTranslate="blogApp.circle.circleName">Circle Name</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="circleWorth"><span jhiTranslate="blogApp.circle.circleWorth">Circle Worth</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="startDate"><span jhiTranslate="blogApp.circle.startDate">Start Date</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="endDate"><span jhiTranslate="blogApp.circle.endDate">End Date</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="numberOfMembers"><span jhiTranslate="blogApp.circle.numberOfMembers">Number Of Members</span> <span class="fa fa-sort"></span></th>
-            <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let circle of circles ;trackBy: trackId">
-                <td><a [routerLink]="['../circle-my-suffix', circle.id ]">{{circle.id}}</a></td>
-                <td>{{circle.circleName}}</td>
-                <td>{{circle.circleWorth}}</td>
-                <td>{{circle.startDate | date:'medium'}}</td>
-                <td>{{circle.endDate | date:'medium'}}</td>
-                <td>{{circle.numberOfMembers}}</td>
-                <td class="text-right">
-                    <div class="btn-group flex-btn-group-container">
-                        <button type="submit"
-                                [routerLink]="['../circle-my-suffix', circle.id ]"
-                                class="btn btn-info btn-sm">
-                            <span class="fa fa-eye"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'circle-my-suffix/'+ circle.id + '/edit'} }]"
-                                replaceUrl="true"
-                                class="btn btn-primary btn-sm">
-                            <span class="fa fa-pencil"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'circle-my-suffix/'+ circle.id + '/delete'} }]"
-                                replaceUrl="true"
-                                class="btn btn-danger btn-sm">
-                            <span class="fa fa-remove"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <div *ngFor="let circle of circles; trackBy: trackId">
+                <h2>{{circle.circleName}}</h2>
+                <small>Circle will start on {{circle.startDate | date: 'short'}}</small>
+                <div class="btn-group mb-2 mt-1">
+                    <button type="submit"
+                            [routerLink]="['../circle-my-suffix', circle.id ]"
+                            replaceUrl="true"
+                            class="btn btn-primary btn-sm">
+                        <span class="fa fa-pencil"></span>
+                        <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                    </button>
+                    <button type="submit"
+                            [routerLink]="['/', { outlets: { popup: 'circle-my-suffix/'+ circle.id + '/delete'} }]"
+                            replaceUrl="true"
+                            class="btn btn-danger btn-sm">
+                        <span class="fa fa-remove"></span>
+                        <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
+
         <div *ngIf="circles && circles.length">
             <div class="row justify-content-center">
                 <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
