@@ -48,7 +48,7 @@
 
     </changeSet>
 
-    <changeSet id="20171219172753-2" author="awad" runOnChange="true">
+    <changeSet id="20171219172753-2" author="awad">
         <addColumn tableName="circle">
             <column name="created_date" type="date">
             </column>
