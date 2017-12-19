@@ -8,6 +8,7 @@ import app.group.up.repository.search.EntrySearchRepository;
 import app.group.up.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
@@ -186,6 +187,7 @@ public class EntryResourceIntTest {
 
     @Test
     @Transactional
+    @Ignore
     public void checkDateIsRequired() throws Exception {
         int databaseSizeBeforeTest = entryRepository.findAll().size();
         // set the field null
