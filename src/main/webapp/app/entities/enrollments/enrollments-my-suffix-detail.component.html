@@ -1,0 +1,41 @@
+
+<div *ngIf="enrollments">
+    <h2><span jhiTranslate="blogApp.enrollments.detail.title">Enrollments</span> {{enrollments.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.enrollments.personId">Person Id</span></dt>
+        <dd>
+            <span>{{enrollments.personId}}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.enrollments.circleId">Circle Id</span></dt>
+        <dd>
+            <span>{{enrollments.circleId}}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.enrollments.circle">Circle</span></dt>
+        <dd>
+            <div *ngIf="enrollments.circleId">
+                <a [routerLink]="['/circle-my-suffix', enrollments.circleId]">{{enrollments.circleId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.enrollments.person">Person</span></dt>
+        <dd>
+            <div *ngIf="enrollments.personId">
+                <a [routerLink]="['/person-my-suffix', enrollments.personId]">{{enrollments.personId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'enrollments-my-suffix/'+ enrollments.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

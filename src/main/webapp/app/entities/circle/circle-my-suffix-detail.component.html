@@ -1,0 +1,41 @@
+
+<div *ngIf="circle">
+    <h2><span jhiTranslate="blogApp.circle.detail.title">Circle</span> {{circle.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.circle.circleName">Circle Name</span></dt>
+        <dd>
+            <span>{{circle.circleName}}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.circle.circleWorth">Circle Worth</span></dt>
+        <dd>
+            <span>{{circle.circleWorth}}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.circle.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{circle.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.circle.endDate">End Date</span></dt>
+        <dd>
+            <span>{{circle.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.circle.numberOfMembers">Number Of Members</span></dt>
+        <dd>
+            <span>{{circle.numberOfMembers}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'circle-my-suffix/'+ circle.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -10,6 +10,13 @@
                 "blog": "Blog",
                 "entry": "Entry",
                 "tag": "Tag",
+                "circleMySuffix": "Circle",
+                "personMySuffix": "Person",
+                "enrollmentsMySuffix": "Enrollments",
+                "enrollmentHistoryMySuffix": "Enrollment History",
+                "addressMySuffix": "Address",
+                "reviewMySuffix": "Review",
+                "paymentMySuffix": "Payment",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

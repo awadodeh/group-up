@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "circle",
+            "otherEntityName": "circle",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "person",
+            "otherEntityName": "person",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "personId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "circleId",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171219172755",
+    "entityTableName": "enrollments",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularJSSuffix": "mySuffix"
+}

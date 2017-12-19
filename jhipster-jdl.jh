@@ -1,25 +1,75 @@
-entity Blog {
-	name String required minlength(3),
-	handle String required minlength(2)
+entity Circle {
+	circleName String required minlength(3),
+    circleWorth Long required,
+    startDate ZonedDateTime required,
+    endDate ZonedDateTime required,
+    numberOfMembers Integer required
 }
 
-entity Entry {
-	title String required,
-	content TextBlob required,
-	date ZonedDateTime required
+entity Person {
+	firstName String required minlength(3),
+	lastName String required minlength(3),
+	email String required,
+	phoneNumber String required
 }
 
-entity Tag {
-	name String required minlength(2)
+entity Enrollments{
+	personId String,
+    circleId String
 }
 
-relationship ManyToOne {
-	Blog{user(login)} to User,
-	Entry{blog(name)} to Blog
+entity EnrollmentHistory {
+	language Language
 }
 
-relationship ManyToMany {
-	Entry{tag(name)} to Tag{entry}
+
+entity Address {
+	streetAddress String required minlength(3),
+	postalCode String required,
+	city String required,
+	stateProvince String required
 }
 
-paginate Entry, Tag with infinite-scroll
+entity Review {
+	reviewSummery TextBlob required
+}
+
+entity Payment { 
+	paymentNo Integer required,
+    dueDate ZonedDateTime required,
+    amount Long
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+relationship OneToMany {
+	Person{payment} to Payment,
+    Person{review} to Review,
+    Person{enrollments} to Enrollments
+}
+
+relationship OneToOne {
+	Person{address} to Address
+}
+
+relationship OneToOne {
+	EnrollmentHistory{circle} to Circle,
+	EnrollmentHistory{person} to Person
+}
+
+relationship OneToMany {
+	Circle{enrollments} to Enrollments
+}
+
+paginate EnrollmentHistory with infinite-scroll
+paginate Circle with pagination
+paginate Person with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with mySuffix

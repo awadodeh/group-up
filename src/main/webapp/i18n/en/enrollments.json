@@ -1,0 +1,25 @@
+{
+    "blogApp": {
+        "enrollments" : {
+            "home": {
+                "title": "Enrollments",
+                "createLabel": "Create a new Enrollments",
+                "createOrEditLabel": "Create or edit a Enrollments",
+                "search": "Search for Enrollments"
+            },
+            "created": "A new Enrollments is created with identifier {{ param }}",
+            "updated": "A Enrollments is updated with identifier {{ param }}",
+            "deleted": "A Enrollments is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Enrollments {{ id }}?"
+            },
+            "detail": {
+                "title": "Enrollments"
+            },
+            "personId": "Person Id",
+            "circleId": "Circle Id",
+            "circle": "Circle",
+            "person": "Person"
+        }
+    }
+}

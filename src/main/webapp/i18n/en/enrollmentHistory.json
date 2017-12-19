@@ -1,0 +1,24 @@
+{
+    "blogApp": {
+        "enrollmentHistory" : {
+            "home": {
+                "title": "Enrollment Histories",
+                "createLabel": "Create a new Enrollment History",
+                "createOrEditLabel": "Create or edit a Enrollment History",
+                "search": "Search for Enrollment History"
+            },
+            "created": "A new Enrollment History is created with identifier {{ param }}",
+            "updated": "A Enrollment History is updated with identifier {{ param }}",
+            "deleted": "A Enrollment History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Enrollment History {{ id }}?"
+            },
+            "detail": {
+                "title": "Enrollment History"
+            },
+            "language": "Language",
+            "circle": "Circle",
+            "person": "Person"
+        }
+    }
+}

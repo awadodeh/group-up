@@ -1,0 +1,37 @@
+
+<div *ngIf="enrollmentHistory">
+    <h2><span jhiTranslate="blogApp.enrollmentHistory.detail.title">Enrollment History</span> {{enrollmentHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.enrollmentHistory.language">Language</span></dt>
+        <dd>
+            <span jhiTranslate="{{'blogApp.Language.' + enrollmentHistory.language}}">{{enrollmentHistory.language}}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.enrollmentHistory.circle">Circle</span></dt>
+        <dd>
+            <div *ngIf="enrollmentHistory.circleId">
+                <a [routerLink]="['/circle-my-suffix', enrollmentHistory.circleId]">{{enrollmentHistory.circleId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.enrollmentHistory.person">Person</span></dt>
+        <dd>
+            <div *ngIf="enrollmentHistory.personId">
+                <a [routerLink]="['/person-my-suffix', enrollmentHistory.personId]">{{enrollmentHistory.personId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'enrollment-history-my-suffix/'+ enrollmentHistory.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
