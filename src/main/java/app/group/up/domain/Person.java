@@ -24,6 +24,7 @@ public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -63,6 +64,16 @@ public class Person implements Serializable {
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Enrollments> enrollments = new HashSet<>();
+
+    @JsonIgnore
+    @ManyToMany(cascade = { CascadeType.REFRESH })
+    @JoinTable(
+        name = "member_enrollment",
+        joinColumns = { @JoinColumn(name = "persons_id", referencedColumnName="id") },
+        inverseJoinColumns = { @JoinColumn(name = "circles_id", referencedColumnName="id") }
+    )
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Circle> circles = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -212,6 +223,19 @@ public class Person implements Serializable {
     public void setEnrollments(Set<Enrollments> enrollments) {
         this.enrollments = enrollments;
     }
+
+    public Set<Circle> getCircles() {
+        return circles;
+    }
+
+    public void setCircles(Set<Circle> circles) {
+        this.circles = circles;
+    }
+
+    public int getNumberOfEnrollments() {
+        return this.circles.size();
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

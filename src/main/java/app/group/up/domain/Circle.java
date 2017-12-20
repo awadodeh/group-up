@@ -27,6 +27,7 @@ public class Circle implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -59,6 +60,9 @@ public class Circle implements Serializable {
     @Column(name = "created_date")
     @Convert(converter = LocalDateConverter.class)
     private LocalDate createdDate = LocalDate.now();
+
+    @ManyToMany(mappedBy = "circles")
+    private Set<Person> members = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -167,6 +171,18 @@ public class Circle implements Serializable {
 
     public void setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Set<Person> getMembers() {
+        return members;
+    }
+
+    public void setMembers(Set<Person> members) {
+        this.members = members;
+    }
+
+    public int getNumberOfEnrolledMemebers() {
+        return  members.size();
     }
 
     @Override

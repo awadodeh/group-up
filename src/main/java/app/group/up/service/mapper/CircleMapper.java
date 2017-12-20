@@ -10,9 +10,9 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = {})
 public interface CircleMapper extends EntityMapper <CircleDTO, Circle> {
-    
+
     @Mapping(target = "enrollments", ignore = true)
-    Circle toEntity(CircleDTO circleDTO); 
+    Circle toEntity(CircleDTO circleDTO);
     default Circle fromId(Long id) {
         if (id == null) {
             return null;

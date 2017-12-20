@@ -1,7 +1,7 @@
 {
     "home": {
-        "title": "Welcome, Java Hipster!",
-        "subtitle": "This is your homepage",
+        "title": "Welcome To AddUp!",
+        "subtitle": "Be smart, save a little and it will will add up!",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },

@@ -92,6 +92,13 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="form-control-label" for="field_member">Member</label>
+            <select class="form-control" id="field_member" name="member" [(ngModel)]="circle.members" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="memberOption.id === blog.user?.id ? blog.user : memberOption" *ngFor="let memberOption of members; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

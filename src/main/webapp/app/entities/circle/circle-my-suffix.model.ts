@@ -9,6 +9,8 @@ export class CircleMySuffix implements BaseEntity {
         public endDate?: any,
         public numberOfMembers?: number,
         public enrollments?: BaseEntity[],
+        public members?: BaseEntity[],
+        public numberOfEnrolledMemebers?: number
     ) {
     }
 }
