@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="owdaa (generated)" id="1513785719569-1">
+      <createTable tableName="member_enrollment">
+         <column name="persons_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="circles_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513785719569-2">
+      <addColumn tableName="circle">
+         <column name="number_of_enrolled_memebers" type="integer">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513785719569-3">
+      <addColumn tableName="person">
+         <column name="number_of_enrollments" type="integer">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513785719569-4">
+      <addPrimaryKey columnNames="persons_id, circles_id" tableName="member_enrollment"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513785719569-5">
+      <addForeignKeyConstraint baseColumnNames="circles_id"
+                               baseTableName="member_enrollment"
+                               constraintName="FK4ryit6kip55c694cvwc4ik55c"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="circle"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513785719569-6">
+      <addForeignKeyConstraint baseColumnNames="persons_id"
+                               baseTableName="member_enrollment"
+                               constraintName="FKmo4axa5l1gx53h52yhqwg6yvb"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="person"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513785719569-7">
+      <dropUniqueConstraint constraintName="CONSTRAINT_7" tableName="JHI_SOCIAL_USER_CONNECTION"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513785719569-8">
+      <dropUniqueConstraint constraintName="CONSTRAINT_71" tableName="JHI_SOCIAL_USER_CONNECTION"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513785719569-9">
+      <dropNotNullConstraint columnDataType="blob(255)" columnName="jhi_date" tableName="entry"/>
+   </changeSet>
+</databaseChangeLog>

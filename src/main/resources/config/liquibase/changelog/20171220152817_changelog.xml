@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="owdaa (generated)" id="1513783703152-1">
+      <createTable tableName="member_enrollment">
+         <column name="person_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-2">
+      <addColumn tableName="enrollment_history">
+         <column name="circle_circle_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-3">
+      <addColumn tableName="enrollments">
+         <column name="circle_circle_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-4">
+      <addColumn tableName="circle">
+         <column name="circle_id" type="bigint">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-5">
+      <addColumn tableName="circle">
+         <column name="number_of_enrolled_memebers" type="integer">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-6">
+      <addColumn tableName="person">
+         <column name="number_of_enrollments" type="integer">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-7">
+      <addColumn tableName="person">
+         <column name="person_id" type="bigint">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-8">
+      <addColumn tableName="enrollment_history">
+         <column name="person_person_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-9">
+      <addColumn tableName="enrollments">
+         <column name="person_person_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-10">
+      <addColumn tableName="payment">
+         <column name="person_person_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-11">
+      <addColumn tableName="review">
+         <column name="person_person_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-12">
+      <addPrimaryKey columnNames="person_id, id" tableName="member_enrollment"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-13">
+      <addUniqueConstraint columnNames="circle_circle_id"
+                           constraintName="UC_ENROLLMENT_HISTORYCIRCLE_CIRCLE_ID_COL"
+                           tableName="enrollment_history"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-14">
+      <addUniqueConstraint columnNames="person_person_id"
+                           constraintName="UC_ENROLLMENT_HISTORYPERSON_PERSON_ID_COL"
+                           tableName="enrollment_history"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-15">
+      <createIndex indexName="IX_circlePK" tableName="circle" unique="true">
+         <column name="circle_id"/>
+      </createIndex>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-16">
+      <createIndex indexName="IX_personPK" tableName="person" unique="true">
+         <column name="person_id"/>
+      </createIndex>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-17">
+      <addForeignKeyConstraint baseColumnNames="circle_circle_id"
+                               baseTableName="enrollments"
+                               constraintName="FK4sfvolrnwka4tlabrjblat65x"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="circle_id"
+                               referencedTableName="circle"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-18">
+      <addForeignKeyConstraint baseColumnNames="person_person_id"
+                               baseTableName="review"
+                               constraintName="FKahus8ikhl864gjnaavlf543gm"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="person_id"
+                               referencedTableName="person"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-19">
+      <addForeignKeyConstraint baseColumnNames="person_person_id"
+                               baseTableName="enrollment_history"
+                               constraintName="FKasmpmxfatqum3w97t0wtt1kan"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="person_id"
+                               referencedTableName="person"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-20">
+      <addForeignKeyConstraint baseColumnNames="person_id"
+                               baseTableName="member_enrollment"
+                               constraintName="FKhkmdmhod6a21s82el9d742463"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="person_id"
+                               referencedTableName="person"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-21">
+      <addForeignKeyConstraint baseColumnNames="person_person_id"
+                               baseTableName="payment"
+                               constraintName="FKl1w1twkgkus3owlfaxy7nm0b6"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="person_id"
+                               referencedTableName="person"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-22">
+      <addForeignKeyConstraint baseColumnNames="circle_circle_id"
+                               baseTableName="enrollment_history"
+                               constraintName="FKn56mmpyh819jekv6wxovpes6y"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="circle_id"
+                               referencedTableName="circle"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-23">
+      <addForeignKeyConstraint baseColumnNames="person_person_id"
+                               baseTableName="enrollments"
+                               constraintName="FKo93aq5re711edgs64qytwx9bk"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="person_id"
+                               referencedTableName="person"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-24">
+      <addForeignKeyConstraint baseColumnNames="id"
+                               baseTableName="member_enrollment"
+                               constraintName="FKslhio244h654qjgxlivjiskui"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="circle_id"
+                               referencedTableName="circle"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-25">
+      <dropForeignKeyConstraint baseTableName="ENROLLMENTS" constraintName="FK_ENROLLMENTS_CIRCLE_ID"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-26">
+      <dropForeignKeyConstraint baseTableName="ENROLLMENTS" constraintName="FK_ENROLLMENTS_PERSON_ID"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-27">
+      <dropForeignKeyConstraint baseTableName="ENROLLMENT_HISTORY"
+                                constraintName="FK_ENROLLMENT_HISTORY_CIRCLE_ID"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-28">
+      <dropForeignKeyConstraint baseTableName="ENROLLMENT_HISTORY"
+                                constraintName="FK_ENROLLMENT_HISTORY_PERSON_ID"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-29">
+      <dropForeignKeyConstraint baseTableName="PAYMENT" constraintName="FK_PAYMENT_PERSON_ID"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-30">
+      <dropForeignKeyConstraint baseTableName="REVIEW" constraintName="FK_REVIEW_PERSON_ID"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-31">
+      <dropUniqueConstraint constraintName="CONSTRAINT_7" tableName="JHI_SOCIAL_USER_CONNECTION"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-32">
+      <dropUniqueConstraint constraintName="CONSTRAINT_71" tableName="JHI_SOCIAL_USER_CONNECTION"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-33">
+      <dropUniqueConstraint constraintName="CONSTRAINT_D" tableName="ENROLLMENT_HISTORY"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-34">
+      <dropUniqueConstraint constraintName="CONSTRAINT_DC" tableName="ENROLLMENT_HISTORY"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-35">
+      <dropColumn columnName="CIRCLE_ID" tableName="ENROLLMENTS"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-36">
+      <dropColumn columnName="CIRCLE_ID" tableName="ENROLLMENT_HISTORY"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-37">
+      <dropColumn columnName="ID" tableName="CIRCLE"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-38">
+      <dropColumn columnName="ID" tableName="PERSON"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-39">
+      <dropColumn columnName="PERSON_ID" tableName="ENROLLMENTS"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-40">
+      <dropColumn columnName="PERSON_ID" tableName="ENROLLMENT_HISTORY"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-41">
+      <dropColumn columnName="PERSON_ID" tableName="PAYMENT"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-42">
+      <dropColumn columnName="PERSON_ID" tableName="REVIEW"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-43">
+      <dropNotNullConstraint columnDataType="blob(255)" columnName="jhi_date" tableName="entry"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-44">
+      <dropPrimaryKey tableName="circle"/>
+      <addPrimaryKey columnNames="circle_id"
+                     constraintName="circlePK"
+                     tableName="circle"/>
+   </changeSet>
+   <changeSet author="owdaa (generated)" id="1513783703152-45">
+      <dropPrimaryKey tableName="person"/>
+      <addPrimaryKey columnNames="person_id"
+                     constraintName="personPK"
+                     tableName="person"/>
+   </changeSet>
+</databaseChangeLog>
